@@ -81,7 +81,11 @@ public class Task_4 implements Task_4_base {
         // Даны два массива arr1, arr2.
         // Произвести слияние данных массивов в один отсортированный
         // по возрастанию массив.
-        ArrayList<Integer> intAr = new ArrayList<>();
+        //
+        // Я сначала сделал через ArrayList, но потом подумал,
+        // что наверно можно использовать только обычный массив,
+        // поэтому передеалал уже только с int[]
+        /*ArrayList<Integer> intAr = new ArrayList<>();
         for(int i = 0; i < arr1.length; i++){
             intAr.add(arr1[i]);
         }
@@ -89,7 +93,16 @@ public class Task_4 implements Task_4_base {
             intAr.add(arr2[i]);
         }
 
-        return intAr.stream().sorted().mapToInt(i->i).toArray();
+        return intAr.stream().sorted().mapToInt(i->i).toArray();*/
+
+        int[] sumar = new int[arr1.length+arr2.length];
+        for(int i = 0; i < arr1.length; i++){
+            sumar[i] = arr1[i];
+        }
+        for(int i = 0; i < arr2.length; i++){
+            sumar[arr1.length + i] = arr2[i];
+        }
+        return Arrays.stream(sumar).sorted().toArray();
     }
 
     @Override
@@ -99,14 +112,20 @@ public class Task_4 implements Task_4_base {
         // по возрастанию массив.
         // Используйте алгоритм, время работы которого будет пропорционально сумме
         // размеров arr1 и arr2, а не их произведению
-        ArrayList<Integer> intAr = new ArrayList<>();
-        for(int i = 0; i < arr1.length; i++){
-            intAr.add(arr1[i]);
+
+        int[] sumar = new int[arr1.length+arr2.length];
+        int i1 = 0,i2 = 0, i = 0;
+        while(i1 < arr1.length || i2 < arr2.length){
+            if((i2 >= arr2.length) || (i1 < arr1.length && arr1[i1] < arr2[i2])) {
+                sumar[i] = arr1[i1];
+                i1++;
+            }
+            else {
+                sumar[i] = arr2[i2];
+                i2++;
+            }
+            i++;
         }
-        for(int i = 0; i < arr2.length; i++){
-            intAr.add(arr2[i]);
-        }// не уверен что мой алгоритм самый быстрый и пропорционален сумме
-        // размеров arr1 и arr2, но работает не долго, поэтому думаю он может быть решением этой задачи
-        return intAr.stream().sorted().mapToInt(i->i).toArray();
+        return sumar;
     }
 }
