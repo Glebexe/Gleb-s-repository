@@ -121,6 +121,7 @@ public class Task_6_Tests {
             "getPassword",
             "getScheme",
             "isValid",
+            "getPort",
             "getHost",
             "getUrl",
             "getParameters",
