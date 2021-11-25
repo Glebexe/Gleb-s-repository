@@ -1,28 +1,43 @@
-package Fight;
+package GameProcess;
 
 import Basic_classes.Unit;
 import Factories.UnitFactory;
 import Factories.UnitType;
-import StaticClasses.ConsoleInteraction;
+import StaticClasses.BattleInterface;
 import Teams.AITeam;
 import Teams.HumanTeam;
 
 import java.util.*;
 
-public class PreBattle {
+public class CreateTeams {
 
     private HumanTeam human;
-    private AITeam ai;
     private UnitFactory unitFactory;
 
-    public PreBattle(){
+    public CreateTeams(){
         unitFactory = new UnitFactory();
         initialisation();
     }
 
+    private String createTeamName(){
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Назовите свою команду. Длина имени должна быть не меньше трёх и не больше пятнадцати символов.");
+
+        String name;
+        while (true) {
+            name = sc.next();
+            if (name.length() >= 3 && name.length() < 16) {
+                return name;
+            } else {
+                System.out.println("Длина имени должна быть не меньше трёх и не больше пятнадцати символов!");
+            }
+        }
+    }
+
     private void initialisation(){
         human = humanTeamInit();
-        ai = aITeamInit();
     }
 
     //Human team initialization
@@ -31,7 +46,7 @@ public class PreBattle {
         List<Unit> teamUnits = new ArrayList<>();
         int[] unitsNum = new int[3];
 
-        String teamName = ConsoleInteraction.createTeamName();
+        String teamName = createTeamName();
 
         System.out.println("1. Воин \n2. Лучник \n3. Волшебник");
 
@@ -49,36 +64,19 @@ public class PreBattle {
         return new HumanTeam(teamName,teamUnits);
     }
 
-    //AI team initialization
-    private AITeam aITeamInit(){
-
-        List<Unit> teamUnits = new ArrayList<>();
-        int[] unitsNum = new int[3];
-
-        Random random = new Random();
-
-        unitsNum[0] = random.nextInt(3)+1;
-        unitsNum[1] = random.nextInt(3)+1;
-        unitsNum[2] = random.nextInt(3)+1;
-
-        fillingTeam(unitsNum,teamUnits);
-
-        return new AITeam("Компьютер", teamUnits);
-    }
-
     // Adding in a team units
     private void fillingTeam(int[] unitsNum, List<Unit> team){
 
         for(int i = 0; i < 3; i++){
             switch(unitsNum[i]){
                 case 1:
-                    team.add(unitFactory.createUnit(UnitType.Warrior));
+                    team.add(unitFactory.createUnit(UnitType.Warrior,0,0,0));
                     break;
                 case 2:
-                    team.add(unitFactory.createUnit(UnitType.Archer));
+                    team.add(unitFactory.createUnit(UnitType.Archer,0,0,0));
                     break;
                 case 3:
-                    team.add(unitFactory.createUnit(UnitType.Wizard));
+                    team.add(unitFactory.createUnit(UnitType.Wizard,0,0,0));
             }
         }
     }
@@ -101,10 +99,6 @@ public class PreBattle {
                 sc.next();
             }
         }
-    }
-
-    public AITeam getAiTeam() {
-        return ai;
     }
 
     public HumanTeam getHumanTeam() {

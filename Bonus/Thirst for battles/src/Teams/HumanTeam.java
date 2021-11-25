@@ -2,7 +2,6 @@ package Teams;
 
 import Basic_classes.Team;
 import Basic_classes.Unit;
-
 import java.util.List;
 
 public class HumanTeam extends Team {

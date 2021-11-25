@@ -1,13 +1,12 @@
-package Fight;
+package GameProcess;
 
 import Basic_classes.Team;
 import Basic_classes.Unit;
-import StaticClasses.ConsoleInteraction;
+import StaticClasses.BattleInterface;
 import Teams.AITeam;
 import Teams.HumanTeam;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Battle {
 
@@ -26,7 +25,7 @@ public class Battle {
     private void fight(){
 
         while(humanTeam.isTeamAlive() && aiTeam.isTeamAlive()){
-            ConsoleInteraction.drawInterfaceOfBattle(humanTeam, aiTeam);
+            BattleInterface.drawInterfaceOfBattle(humanTeam, aiTeam);
 
             humanAttack();
 
@@ -43,15 +42,15 @@ public class Battle {
         int attackingUnit,defendingUnit,dealtDamage;
 
         System.out.println("Выберете кем будете атакавать: ");
-        attackingUnit = ConsoleInteraction.checkUnitInput(humanTeam);
+        attackingUnit = BattleInterface.checkUnitInput(humanTeam);
         System.out.println("Выберете кого будете атакавать: ");
-        defendingUnit = ConsoleInteraction.checkUnitInput(aiTeam);
+        defendingUnit = BattleInterface.checkUnitInput(aiTeam);
 
         dealtDamage = getUnit(aiTeam,
                 defendingUnit-1).receiveDamage(getUnit(humanTeam,attackingUnit-1).getDamage()
                 + random.nextInt(10)-5);
 
-        ConsoleInteraction.battleLogs(humanTeam,aiTeam,attackingUnit-1,defendingUnit-1,dealtDamage);
+        BattleInterface.battleLogs(humanTeam,aiTeam,attackingUnit-1,defendingUnit-1,dealtDamage);
     }
 
     // AI logic of attack
@@ -64,7 +63,7 @@ public class Battle {
                 defendingUnit).receiveDamage(aiTeam.getUnits().get(attackingUnit).getDamage() +
                 random.nextInt(10)-5);
 
-        ConsoleInteraction.battleLogs(aiTeam,humanTeam,attackingUnit,defendingUnit,dealtDamage);
+        BattleInterface.battleLogs(aiTeam,humanTeam,attackingUnit,defendingUnit,dealtDamage);
     }
 
     // AI logic of choosing an attacking unit
@@ -104,6 +103,6 @@ public class Battle {
 
     //After battle logic
     private void results(){
-        ConsoleInteraction.results(humanTeam);
+        BattleInterface.results(humanTeam);
     }
 }

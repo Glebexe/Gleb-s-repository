@@ -1,22 +1,28 @@
 package Basic_classes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Team {
     protected List<Unit> units;
     protected String name;
 
+    private List<Equipment> equipment;
+
     public Team(String name, List<Unit> units){
         this.name = name;
         this.units = units;
+        equipment = new ArrayList<>();
     }
 
     public List<Unit> getUnits() {
         return units;
     }
-
     public String getName() {
         return name;
+    }
+    public List<Equipment> getEquipment(){
+        return equipment;
     }
 
     public boolean isTeamAlive(){
@@ -28,5 +34,11 @@ public abstract class Team {
             }
         }
         return check;
+    }
+
+    public void reset(){
+        for(Unit i: units){
+            i.reset();
+        }
     }
 }

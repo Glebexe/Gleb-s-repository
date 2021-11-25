@@ -5,14 +5,14 @@ import Basic_classes.Unit;
 
 import java.util.Scanner;
 
-public final class ConsoleInteraction {
+public final class BattleInterface {
     private static Scanner sc;
 
     public static void drawInterfaceOfBattle(Team humanTeam, Team aiTeam){
         StringBuilder output = new StringBuilder();
         output.append("Команда " + String.format("%-15s",humanTeam.getName()) +
-                "                                                                           Команда " + aiTeam.getName() + "\n");
-        output.append("===========================================================================================================" + "\n");
+                "                                                               Команда " + aiTeam.getName() + "\n");
+        output.append("============================================================================================================================" + "\n");
         for(int i = 0; i < humanTeam.getUnits().size(); i++){
             output.append(String.format("%-14s",i+1 + ". " + getUnit(humanTeam,i).getName()));
             output.append(String.format("%-4s", getUnit(humanTeam,i).getHp()));
@@ -20,7 +20,7 @@ public final class ConsoleInteraction {
             output.append(String.format("%-3s", getUnit(humanTeam,i).getArmor()));
             output.append(String.format("%-7s", "Броня"));
             output.append(String.format("%-3s", getUnit(humanTeam,i).getDamage()));
-            output.append(String.format("%-30s", "Атака"));
+            output.append(String.format("%-50s", "Атака"));
             output.append(String.format("%-14s", i+1 + ". " + getUnit(aiTeam,i).getName()));
             output.append(String.format("%-4s", getUnit(aiTeam,i).getHp()));
             output.append(String.format("%-4s", "hp"));
@@ -28,16 +28,16 @@ public final class ConsoleInteraction {
             output.append(String.format("%-7s", "Броня"));
             output.append(String.format("%-3s", getUnit(aiTeam,i).getDamage()));
             output.append(String.format("%-6s", "Атака\n"));
-            output.append(String.format("%-65s","(Меч: " + (getUnit(humanTeam,i).sword != null ?
-                    getUnit(humanTeam,i).sword.getName() + " +" + getUnit(humanTeam,i).sword.getDamage() + " урона":"нет")
-                    + ".  " + "Щит: " + (getUnit(humanTeam,i).shield != null ?
-                    getUnit(humanTeam,i).shield.getName() + " +" + getUnit(humanTeam,i).shield.getDefence() + " защиты":"нет")
-                    + ".  " + "Заклинания: " + (getUnit(humanTeam,i).spell != null ? getUnit(humanTeam,i).spell.getName():"нет") + ".)"));
-            output.append("(Меч: " + (getUnit(aiTeam,i).sword != null ?
-                    getUnit(aiTeam,i).sword.getName()  + " +" + getUnit(aiTeam,i).sword.getDamage() + " урона":"нет")
-                    + ".  " + "Щит: " + (getUnit(aiTeam,i).shield != null ?
-                    getUnit(aiTeam,i).shield.getName() + " +" + getUnit(aiTeam,i).shield.getDefence() + " защиты":"нет")
-                    + ".  " + "Заклинания: " + (getUnit(aiTeam,i).spell != null ? getUnit(aiTeam,i).spell.getName():"нет") + ".)\n");
+            output.append(String.format("%-85s","(Меч: " + (getUnit(humanTeam,i).getSword() != null ?
+                    getUnit(humanTeam,i).getSword().getName() + " +" + getUnit(humanTeam,i).getSword().getDamage() + " урона":"нет")
+                    + ".  " + "Щит: " + (getUnit(humanTeam,i).getShield() != null ?
+                    getUnit(humanTeam,i).getShield().getName() + " +" + getUnit(humanTeam,i).getShield().getDefence() + " защиты":"нет")
+                    + ".  " + "Заклинания: " + (getUnit(humanTeam,i).getSpell() != null ? getUnit(humanTeam,i).getSpell().getName():"нет") + ".)"));
+            output.append("(Меч: " + (getUnit(aiTeam,i).getSword() != null ?
+                    getUnit(aiTeam,i).getSword().getName()  + " +" + getUnit(aiTeam,i).getSword().getDamage() + " урона":"нет")
+                    + ".  " + "Щит: " + (getUnit(aiTeam,i).getShield() != null ?
+                    getUnit(aiTeam,i).getShield().getName() + " +" + getUnit(aiTeam,i).getShield().getDefence() + " защиты":"нет")
+                    + ".  " + "Заклинания: " + (getUnit(aiTeam,i).getSpell() != null ? getUnit(aiTeam,i).getSpell().getName():"нет") + ".)\n");
         }
         System.out.println(output);
     }
@@ -49,6 +49,8 @@ public final class ConsoleInteraction {
     }
 
     public static int checkUnitInput(Team team){
+
+        sc = new Scanner(System.in);
 
         int unit;
         while (true) {
@@ -65,23 +67,6 @@ public final class ConsoleInteraction {
             } else {
                 System.out.println("Вы должны ввести число!");
                 sc.next();
-            }
-        }
-    }
-
-    public static String createTeamName(){
-
-        sc = new Scanner(System.in);
-
-        System.out.println("Назовите свою команду. Длина имени должна быть не меньше трёх и не больше пятнадцати символов.");
-
-        String name;
-        while (true) {
-            name = sc.next();
-            if (name.length() > 3 && name.length() < 16) {
-                return name;
-            } else {
-                System.out.println("Длина имени должна быть не меньше трёх и не больше пятнадцати символов!");
             }
         }
     }

@@ -3,17 +3,21 @@ import Equipment.*;
 
 public abstract class Unit {
     protected int hp;
+    protected int initialHp;
     protected int armor;
+    protected int initialArmor;
     protected int damage;
     protected boolean isAlive;
     protected String name;
-    public Sword sword;
-    public Shield shield;
-    public Spell spell;
+    protected Sword sword;
+    protected Shield shield;
+    protected Spell spell;
 
     public Unit(int hp, int armor, int damage, String name){
         this.hp = hp;
+        initialHp = hp;
         this.armor = armor;
+        initialArmor = armor;
         this.damage = damage;
         this.name = name;
         isAlive = true;
@@ -63,5 +67,38 @@ public abstract class Unit {
             }
 
         return dealtDamage;
+    }
+
+    public Shield getShield() {
+        return shield;
+    }
+
+    public Sword getSword() {
+        return sword;
+    }
+
+    public Spell getSpell() {
+        return spell;
+    }
+
+    public void setEquipment(Equipment equipment, Team team) {
+        switch (equipment.getEquipmentType()){
+            case Sword:
+                if(this.sword != null)
+                    team.getEquipment().add(this.sword);
+                this.sword = (Sword)equipment;
+                break;
+            case Shield:
+                if(this.shield != null)
+                    team.getEquipment().add(this.shield);
+                this.shield = (Shield) equipment;
+                break;
+        }
+    }
+
+    public void reset(){
+        hp = initialHp;
+        armor = initialArmor;
+        isAlive = true;
     }
 }

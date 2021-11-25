@@ -8,20 +8,18 @@ import Units.Warrior;
 import Units.Wizard;
 
 public class UnitFactory {
-    public Unit createUnit(UnitType type) {
+    public Unit createUnit(UnitType type, int hpBonus, int armorBonus, int damageBonus) {
         Unit unit = null;
 
         switch (type) {
             case Warrior:
-                unit = new Warrior(250,20,20,"Воин");
-                unit.sword = new Sword("Экскалибур", 5);
+                unit = new Warrior(250+hpBonus,20+armorBonus,20+damageBonus,"Воин");
                 break;
             case Archer:
-                unit = new Archer(150,10,40,"Лучник");
-                unit.shield = new Shield("Ярило",7);
+                unit = new Archer(150+hpBonus,10+armorBonus,40+damageBonus,"Лучник");
                 break;
             case Wizard:
-                unit = new Wizard(100,0,70,"Волшебник");
+                unit = new Wizard(100+hpBonus,0+armorBonus,70+damageBonus,"Волшебник");
                 break;
         }
 
