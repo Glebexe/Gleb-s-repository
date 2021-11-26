@@ -1,8 +1,6 @@
 package GameControllers;
 
 import Basic_classes.Unit;
-import Equipment.Shield;
-import Equipment.Sword;
 import Factories.EquipmentFactory;
 import Factories.EquipmentType;
 import Factories.UnitFactory;
@@ -43,6 +41,7 @@ public class LevelManager {
         postBattleAward(humanTeam,level);
     }
 
+    //Set after battle award
     private void postBattleAward(HumanTeam humanTeam, int level) {
         if(levels.get(level-1).isCompleted()) {
             switch (new Random().nextInt(2)) {

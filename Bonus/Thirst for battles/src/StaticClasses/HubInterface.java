@@ -1,12 +1,10 @@
 package StaticClasses;
 
-import Basic_classes.Equipment;
 import Basic_classes.Team;
 import Basic_classes.Unit;
 import GameProcess.Level;
 import Teams.HumanTeam;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,6 +19,7 @@ public class HubInterface {
         drawLevels(levels);
     }
 
+    //Check correctness of commands
     public static String commandProcessing(HumanTeam humanTeam){
         System.out.println("Доступные команды:");
         System.out.println("\"Запустить уровень 1\",\"Запуситить уровень 2\", итд. ");
@@ -35,6 +34,7 @@ public class HubInterface {
         }
     }
 
+    //Check correctness if user want to start a level
     private static boolean loadLevelCheck(String input){
         if (input.split(" ").length == 3 && input.split(" ")[0].equals("Запустить") && input.split(" ")[1].equals("уровень")) {
             if (new Scanner(input.split(" ")[2]).hasNextInt()) {
@@ -46,6 +46,7 @@ public class HubInterface {
         return false;
     }
 
+    //Check correctness if user want to put equipment on unit
     private static boolean putEquipmentCheck(String input, HumanTeam humanTeam){
         if (input.split(" ").length == 5 && input.split(" ")[0].equals("Дать")
                 && input.split(" ")[1].equals("снаряжение") && input.split(" ")[3].equals("юниту")) {
@@ -84,7 +85,6 @@ public class HubInterface {
         }
         System.out.println(output);
     }
-
     private static void drawInventory(HumanTeam humanTeam){
         StringBuilder output = new StringBuilder();
         output.append("Свободное снаряжение: \n");
@@ -93,7 +93,6 @@ public class HubInterface {
         }
         System.out.println(output);
     }
-
     private static void drawLevels(List<Level> levels) {
         StringBuilder output = new StringBuilder();
         for(int i = 0; i < levels.size(); i++) {
@@ -104,6 +103,7 @@ public class HubInterface {
         }
         System.out.println(output);
     }
+
     private static Unit getUnit(Team team, int unitNum){
         return team.getUnits().get(unitNum);
     }

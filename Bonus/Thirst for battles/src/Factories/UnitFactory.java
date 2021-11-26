@@ -8,6 +8,7 @@ import Units.Warrior;
 import Units.Wizard;
 
 public class UnitFactory {
+
     public Unit createUnit(UnitType type, int hpBonus, int armorBonus, int damageBonus) {
         Unit unit = null;
 

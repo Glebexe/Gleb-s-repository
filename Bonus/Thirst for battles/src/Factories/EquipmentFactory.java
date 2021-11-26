@@ -5,6 +5,7 @@ import Equipment.Shield;
 import Equipment.Sword;
 
 public class EquipmentFactory {
+
     public Equipment createEquipment(EquipmentType type, int bonus) {
         Equipment equipment = null;
 

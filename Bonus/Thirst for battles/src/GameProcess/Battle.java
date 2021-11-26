@@ -22,6 +22,7 @@ public class Battle {
         fight();
     }
 
+    //Fighting process
     private void fight(){
 
         while(humanTeam.isTeamAlive() && aiTeam.isTeamAlive()){
@@ -101,7 +102,6 @@ public class Battle {
         return team.getUnits().get(unitNum);
     }
 
-    //After battle logic
     private void results(){
         BattleInterface.results(humanTeam);
     }

@@ -3,7 +3,6 @@ package GameProcess;
 import Teams.AITeam;
 import Teams.HumanTeam;
 
-
 public class Level {
 
     private boolean isCompleted;
