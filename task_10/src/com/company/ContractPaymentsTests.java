@@ -1,4 +1,12 @@
 package com.company;
 
-public class ContractPaymentsTests {
+import org.junit.*;
+
+public class ContractPaymentsTests extends Assert {
+
+    @Test
+    public void create_CreateListOfContracts_ContractsCountEqualsZero(){
+        ContractPayments contractPayment = ContractPayments.create();
+        assertEquals(0, contractPayment.getContractsCount());
+    }
 }
