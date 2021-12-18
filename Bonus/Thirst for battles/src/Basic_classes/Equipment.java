@@ -1,19 +1,24 @@
 package Basic_classes;
 
-import Factories.EquipmentType;
+import Enums.EquipmentType;
 
-public class Equipment {
+public abstract class Equipment {
 
     protected String name;
     private EquipmentType equipmentType;
+    private int bonus;
 
-    public Equipment(String name, EquipmentType equipmentType){
+    public Equipment(String name, int bonus, EquipmentType equipmentType){
         this.name = name;
+        this.bonus = bonus;
         this.equipmentType = equipmentType;
     }
 
     public String getName() {
         return name;
+    }
+    public int getBonus(){
+        return bonus;
     }
     public EquipmentType getEquipmentType() {return equipmentType;}
 }

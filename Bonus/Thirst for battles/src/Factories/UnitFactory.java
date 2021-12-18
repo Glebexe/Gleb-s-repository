@@ -1,8 +1,7 @@
 package Factories;
 
 import Basic_classes.Unit;
-import Equipment.Shield;
-import Equipment.Sword;
+import Enums.UnitType;
 import Units.Archer;
 import Units.Warrior;
 import Units.Wizard;

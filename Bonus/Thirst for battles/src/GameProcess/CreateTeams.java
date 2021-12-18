@@ -2,9 +2,7 @@ package GameProcess;
 
 import Basic_classes.Unit;
 import Factories.UnitFactory;
-import Factories.UnitType;
-import StaticClasses.BattleInterface;
-import Teams.AITeam;
+import Enums.UnitType;
 import Teams.HumanTeam;
 
 import java.util.*;

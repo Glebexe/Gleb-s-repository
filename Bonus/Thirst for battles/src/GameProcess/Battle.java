@@ -48,7 +48,7 @@ public class Battle {
         defendingUnit = BattleInterface.checkUnitInput(aiTeam);
 
         dealtDamage = getUnit(aiTeam,
-                defendingUnit-1).receiveDamage(getUnit(humanTeam,attackingUnit-1).getDamage()
+                defendingUnit-1).receiveDamage(getUnit(humanTeam,attackingUnit-1).getFullDamage()
                 + random.nextInt(10)-5);
 
         BattleInterface.battleLogs(humanTeam,aiTeam,attackingUnit-1,defendingUnit-1,dealtDamage);
@@ -61,7 +61,7 @@ public class Battle {
         attackingUnit = aIAttackingUnitChoose();
         defendingUnit = aIDefendingUnitChoose();
         dealtDamage = humanTeam.getUnits().get(
-                defendingUnit).receiveDamage(aiTeam.getUnits().get(attackingUnit).getDamage() +
+                defendingUnit).receiveDamage(aiTeam.getUnits().get(attackingUnit).getFullDamage() +
                 random.nextInt(10)-5);
 
         BattleInterface.battleLogs(aiTeam,humanTeam,attackingUnit,defendingUnit,dealtDamage);
@@ -73,8 +73,8 @@ public class Battle {
         int attackingUnit = 0,maxDamage;
         maxDamage = 0;
         for(int i = 0; i < aiTeam.getUnits().size(); i++){
-            if(getUnit(aiTeam,i).getDamage() > maxDamage && getUnit(aiTeam,i).getIsAlive()){
-                maxDamage = getUnit(aiTeam,i).getDamage();
+            if(getUnit(aiTeam,i).getFullDamage() > maxDamage && getUnit(aiTeam,i).getIsAlive()){
+                maxDamage = getUnit(aiTeam,i).getFullDamage();
                 attackingUnit = i;
             }
         }
@@ -88,8 +88,8 @@ public class Battle {
         int defendingUnit = 0,maxDamage;
         maxDamage = 0;
         for(int i = 0; i < humanTeam.getUnits().size(); i++){
-            if(getUnit(humanTeam,i).getDamage() > maxDamage && getUnit(humanTeam,i).getIsAlive()){
-                maxDamage = getUnit(humanTeam,i).getDamage();
+            if(getUnit(humanTeam,i).getFullDamage() > maxDamage && getUnit(humanTeam,i).getIsAlive()){
+                maxDamage = getUnit(humanTeam,i).getFullDamage();
                 defendingUnit = i;
             }
         }

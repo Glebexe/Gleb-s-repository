@@ -26,61 +26,65 @@ public abstract class Unit {
     public boolean getIsAlive(){
         return isAlive;
     }
-
     public String getName(){
         return name;
     }
-
-    public int getDamage() {
+    public int getFullDamage() {
         if(sword != null)
-            return damage + sword.getDamage();
+            return damage + sword.getBonus();
         return damage;
     }
-
     public int getHp() {
         return hp;
     }
-
-    public int getArmor(){
+    public int getFullArmor(){
         if(shield != null)
-            return armor + shield.getDefence();
+            return armor + shield.getBonus();
         return armor;
+    }
+    public int getBasicArmor() {
+        return armor;
+    }
+    public int getBasicDamage() {
+        return damage;
+    }
+    public Shield getShield() {
+        return shield;
+    }
+    public Sword getSword() {
+        return sword;
+    }
+    public Spell getSpell() {
+        return spell;
     }
 
     public int receiveDamage(int damage) {
         int dealtDamage = 0;
         int additionalArmor;
         if(shield != null)
-            additionalArmor = shield.getDefence();
+            additionalArmor = shield.getBonus();
         else
             additionalArmor = 0;
-            if (hp > 0) {
-                if (hp - (damage - additionalArmor) < 0) {
-                    dealtDamage = hp;
-                    hp = 0;
-                } else {
-                    hp -= (damage - additionalArmor);
-                    dealtDamage = (damage - additionalArmor);
-                }
-                if (hp == 0)
-                    isAlive = false;
+        if (hp > 0) {
+            if (hp - (damage - additionalArmor) < 0) {
+                dealtDamage = hp;
+                hp = 0;
+            } else {
+                hp -= (damage - additionalArmor);
+                dealtDamage = (damage - additionalArmor);
             }
+            if (hp == 0)
+                isAlive = false;
+        }
 
         return dealtDamage;
     }
-
-    public Shield getShield() {
-        return shield;
+    public void setEquipment(Equipment equipment){
+        switch (equipment.getEquipmentType()){
+            case Sword -> this.sword = (Sword) equipment;
+            case Shield -> this.shield = (Shield) equipment;
+        }
     }
-
-    public Sword getSword() {
-        return sword;
-    }
-
-    public Spell getSpell() {
-        return spell;
-    }
-
     public void setEquipment(Equipment equipment, Team team) {
         switch (equipment.getEquipmentType()){
             case Sword:
@@ -94,6 +98,18 @@ public abstract class Unit {
                 this.shield = (Shield) equipment;
                 break;
         }
+    }
+    public void increaseArmor(int value) {
+        System.out.println(this.armor + " " + armor);
+        armor += value;
+        initialArmor = armor;
+    }
+    public void increaseHp(int value) {
+        hp += value;
+        initialHp = hp;
+    }
+    public void increaseDamage(int value) {
+        damage += value;
     }
 
     public void reset(){

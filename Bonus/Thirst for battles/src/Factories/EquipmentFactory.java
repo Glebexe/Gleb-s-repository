@@ -1,6 +1,7 @@
 package Factories;
 
 import Basic_classes.Equipment;
+import Enums.EquipmentType;
 import Equipment.Shield;
 import Equipment.Sword;
 

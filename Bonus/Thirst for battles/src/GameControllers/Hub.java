@@ -1,38 +1,49 @@
 package GameControllers;
 
+import GameProcess.Command;
 import StaticClasses.HubInterface;
 import Teams.HumanTeam;
 
 import java.util.Scanner;
 
+import static Enums.Commands.*;
+
 public class Hub {
 
     private HumanTeam humanTeam;
-    private Scanner sc;
     private LevelManager levelManager;
+    private int upgradingBonus;
 
     public Hub(HumanTeam humanTeam){
         this.humanTeam = humanTeam;
-        sc = new Scanner(System.in);
         levelManager = new LevelManager();
+        upgradingBonus = 5;
     }
 
     public void homeLocation(){
-        String input = "";
-        while(!input.equals("Завершить игру")) {
+        Command command = new Command(InvalidCommand,null);
+        while(command.getCommand() != FinishGame) {
 
             HubInterface.drawHomeLocation(humanTeam,levelManager.getLevels());
-            input = HubInterface.commandProcessing(humanTeam);
+            command = HubInterface.commandProcessing(humanTeam);
 
-            if (input.split(" ").length == 3) {
-                System.out.println("Уровень " + input.split(" ")[2]);
-                levelManager.LoadLevel(Integer.parseInt(input.split(" ")[2]), humanTeam);
-            }
-            else if(input.split(" ").length == 5){
-                humanTeam.getUnits().get(Integer.parseInt(input.split(" ")[4])-1).setEquipment(
-                                humanTeam.getEquipment().get(Integer.parseInt(input.split(" ")[2])-1),humanTeam);
-                humanTeam.getEquipment().remove(Integer.parseInt(input.split(" ")[2])-1);
-
+            switch (command.getCommand()){
+                case LoadLevel:
+                    System.out.println("Уровень " + command.getValues()[0]);
+                    levelManager.LoadLevel(command.getValues()[0], humanTeam);
+                    break;
+                case PutEquipment:
+                    humanTeam.getUnits().get(command.getValues()[1]-1).setEquipment(
+                            humanTeam.getEquipment().get(command.getValues()[0]-1),humanTeam);
+                    humanTeam.getEquipment().remove(command.getValues()[0]-1);
+                    break;
+                case UseUpgradingPoints:
+                    switch(command.getUnitStats()){
+                        case Attack -> humanTeam.getUnits().get(command.getValues()[0]-1).increaseDamage(upgradingBonus);
+                        case Armor -> humanTeam.getUnits().get(command.getValues()[0]-1).increaseArmor(upgradingBonus);
+                        case HP -> humanTeam.getUnits().get(command.getValues()[0]-1).increaseHp(upgradingBonus);
+                    }
+                    humanTeam.addUpgradingPoints(-1);
             }
         }
     }

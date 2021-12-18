@@ -1,4 +1,4 @@
-package Factories;
+package Enums;
 
 public enum EquipmentType {
     Sword,
