@@ -42,4 +42,14 @@ public class ContractPaymentsTests extends Assert {
         contractManager.registerPaymentDocument(100,1010,PaymentOrder,"1","20211219");
         assertEquals(1, contractManager.getContracts().get("1").getPaymentDocumentsCount());
     }
+
+    @Test
+    public void registerPaymentDocument_RegisterPaymentDocumentWithData_DocumentsCountEqualsThree(){
+        ContractManager contractManager = ContractManager.create();
+        contractManager.addContract("1","20211218");
+        contractManager.registerPaymentDocument(100,1010,PaymentOrder,"1","20211219");
+        contractManager.registerPaymentDocument(200,1011,BankOrder,"1","20211219");
+        contractManager.registerPaymentDocument(300,1012,PaymentOrder,"1","20211219");
+        assertEquals(3, contractManager.getContracts().get("1").getPaymentDocumentsCount());
+    }
 }
