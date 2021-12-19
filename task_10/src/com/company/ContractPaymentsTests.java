@@ -2,6 +2,9 @@ package com.company;
 
 import org.junit.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.company.PaymentDocumentType.*;
 
 public class ContractPaymentsTests extends Assert {
@@ -54,7 +57,7 @@ public class ContractPaymentsTests extends Assert {
     }
 
     @Test
-    public void calculatingAmount_CalculatingContractAmountOfPayments_AmountEquals600(){
+    public void calculateAmount_CalculateContractAmountOfPayments_AmountEquals600(){
         ContractManager contractManager = ContractManager.create();
         contractManager.addContract("1","20211218");
         contractManager.registerPaymentDocument(100,1010,PaymentOrder,"1","20211219");
@@ -62,4 +65,34 @@ public class ContractPaymentsTests extends Assert {
         contractManager.registerPaymentDocument(300,1012,PaymentOrder,"1","20211219");
         assertEquals(600, contractManager.getContracts().get("1").getAmountOfPayments());
     }
+
+    /*@Test
+    public void delete(){
+        ContractManager contractManager = ContractManager.create();
+
+    }*/
+
+    @Test
+    public void getList_GetListOfAllPayments_ListEqualsTestList(){
+        ContractManager contractManager = ContractManager.create();
+        contractManager.addContract("1","20211218");
+        contractManager.registerPaymentDocument(100,1010,PaymentOrder,"1","20211219");
+        contractManager.registerPaymentDocument(200,1011,BankOrder,"1","20211219");
+        contractManager.registerPaymentDocument(300,1012,PaymentOrder,"1","20211219");
+        contractManager.addContract("2d","20211219");
+        contractManager.registerPaymentDocument(111,111,PaymentOrder,"2d","20211219");
+        contractManager.registerPaymentDocument(211,122,BankOrder,"2d","20211219");
+        contractManager.registerPaymentDocument(311,133,PaymentOrder,"2d","20211219");
+
+        List<Integer> payments = new ArrayList();
+        payments.add(100);
+        payments.add(200);
+        payments.add(300);
+        payments.add(111);
+        payments.add(211);
+        payments.add(311);
+
+        assertArrayEquals(payments,contractManager.getAllPayments());
+    }
+
 }
