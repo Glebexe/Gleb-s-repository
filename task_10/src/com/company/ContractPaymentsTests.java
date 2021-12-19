@@ -30,7 +30,7 @@ public class ContractPaymentsTests extends Assert {
     public void addContract_AddContractsWithNumberAndDate_PaymentDocumentCountEqualsZero(){
         ContractManager contractPayment = ContractManager.create();
         contractPayment.addContract("1","20211218");
-        assertEquals(3, contractPayment.getContracts().get(1).getPaymentDocumentsCount());
+        assertEquals(0, contractPayment.getContracts().get(1).getPaymentDocumentsCount());
     }
 
     /*@Test
