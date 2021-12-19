@@ -25,4 +25,9 @@ public class ContractManager {
     public HashMap<String,Contract> getContracts() {
         return contracts;
     }
+
+    public void registerPaymentDocument(int sum, int paymentDocumentNumber, PaymentDocumentType paymentType,
+                                        String contractNumber, String date) {
+        contracts.get(contractNumber).registerPaymentDocument(sum,paymentDocumentNumber,paymentType,date);
+    }
 }

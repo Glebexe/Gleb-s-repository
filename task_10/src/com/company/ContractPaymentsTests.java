@@ -2,6 +2,8 @@ package com.company;
 
 import org.junit.*;
 
+import static com.company.PaymentDocumentType.*;
+
 public class ContractPaymentsTests extends Assert {
 
     @Test

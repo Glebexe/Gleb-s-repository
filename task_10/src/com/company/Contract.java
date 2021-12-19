@@ -11,6 +11,10 @@ public class Contract {
         paymentDocuments = new HashMap<>();
     }
 
+    public void registerPaymentDocument(int sum, int number, PaymentDocumentType paymentType, String date){
+        paymentDocuments.put(number,new PaymentDocument(sum,paymentType,date));
+    }
+
     public int getPaymentDocumentsCount() {
         return paymentDocuments.size();
     }
