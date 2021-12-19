@@ -11,4 +11,7 @@ public class Contract {
         paymentDocuments = new HashMap<>();
     }
 
+    public HashMap<Integer, PaymentDocument> getPaymentDocuments() {
+        return paymentDocuments;
+    }
 }
