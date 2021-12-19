@@ -3,9 +3,7 @@ package com.company;
 import org.junit.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static com.company.PaymentDocumentType.*;
 
@@ -132,7 +130,7 @@ public class ContractPaymentsTests extends Assert {
         payments.add(200);
         payments.add(300);
 
-        assertArrayEquals(payments.toArray(),contractManager.getContracts().get("1").getListOfPayments());
+        assertArrayEquals(payments.toArray(),contractManager.getContracts().get("1").getListOfPayments().toArray());
     }
 
     /*@Test
