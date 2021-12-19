@@ -16,4 +16,13 @@ public class ContractPaymentsTests extends Assert {
         contractPayment.addContract("1","20211218");
         assertEquals(1, contractPayment.getContractsCount());
     }
+
+    @Test
+    public void addContract_AddContractsWithNumberAndDate_ContractsCountEqualsThree(){
+        ContractManager contractPayment = ContractManager.create();
+        contractPayment.addContract("1","20211218");
+        contractPayment.addContract("101","20211218");
+        contractPayment.addContract("111","20211218");
+        assertEquals(3, contractPayment.getContractsCount());
+    }
 }
