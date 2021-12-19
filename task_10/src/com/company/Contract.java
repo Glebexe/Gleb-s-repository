@@ -22,6 +22,10 @@ public class Contract {
         return paymentDocuments.size();
     }
 
+    public HashMap<Integer, PaymentDocument> getPaymentDocuments(){
+        return paymentDocuments;
+    }
+
     public int getAmountOfPayments() {
         return sumOfAllPayments;
     }

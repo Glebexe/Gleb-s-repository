@@ -88,11 +88,11 @@ public class ContractPaymentsTests extends Assert {
         payments.add(100);
         payments.add(200);
         payments.add(300);
-        payments.add(111);
-        payments.add(211);
         payments.add(311);
+        payments.add(211);
+        payments.add(111);
 
-        assertArrayEquals(payments,contractManager.getAllPayments());
+        assertArrayEquals(payments.toArray(),contractManager.getAllPayments().toArray());
     }
 
 }
