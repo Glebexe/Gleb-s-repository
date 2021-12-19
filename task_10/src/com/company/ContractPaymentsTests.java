@@ -3,7 +3,9 @@ package com.company;
 import org.junit.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.company.PaymentDocumentType.*;
 
@@ -133,7 +135,7 @@ public class ContractPaymentsTests extends Assert {
         assertArrayEquals(payments.toArray(),contractManager.getContracts().get("1").getListOfPayments().toArray());
     }
 
-    /*@Test
+    @Test
     public void getMap_GetMapOfContractsWithSumOfPayments_MapEqualsTestMap(){
         ContractManager contractManager = ContractManager.create();
         contractManager.addContract("1","20211218");
@@ -145,10 +147,24 @@ public class ContractPaymentsTests extends Assert {
         contractManager.registerPaymentDocument(211,122,BankOrder,"2d","20211219");
         contractManager.registerPaymentDocument(311,133,PaymentOrder,"2d","20211219");
 
-        Map<String,Integer> contracts = new HashMap();
-        contracts.put("1",600);
-        contracts.put("2",633);
-        assertArrayEquals(contracts.to)
-    }*/
+        List<String> contractsTest = new ArrayList();
+        List<Integer> paymentsTest = new ArrayList();
+        contractsTest.add("1");
+        paymentsTest.add(600);
+        contractsTest.add("2");
+        paymentsTest.add(633);
+
+        HashMap<String,Integer> contractsWithPayments = contractManager.getAllContractsWithPayments();
+        List<String> contracts = new ArrayList();
+        List<Integer> payments = new ArrayList();
+
+        for (Map.Entry<String, Integer> entry: contractsWithPayments.entrySet()){
+            contracts.add(entry.getKey());
+            payments.add(entry.getValue());
+        }
+
+        assertArrayEquals(contractsTest.toArray(), contracts.toArray());
+        assertArrayEquals(paymentsTest.toArray(), payments.toArray());
+    }
 
 }
