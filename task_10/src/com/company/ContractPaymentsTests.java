@@ -59,7 +59,7 @@ public class ContractPaymentsTests extends Assert {
     }
 
     @Test
-    public void calculateAmount_CalculateContractAmountOfPayments_AmountEquals600(){
+    public void getAmount_CalculateContractAmountOfPayments_AmountEquals600(){
         ContractManager contractManager = ContractManager.create();
         contractManager.addContract("1","20211218");
         contractManager.registerPaymentDocument(100,1010,PaymentOrder,"1","20211219");
@@ -113,6 +113,26 @@ public class ContractPaymentsTests extends Assert {
         payments.add(111);
 
         assertArrayEquals(payments.toArray(),contractManager.getAllPayments().toArray());
+    }
+
+    @Test
+    public void getPayments_GetAllPaymentsFromContract_ListEqualsTestList(){
+        ContractManager contractManager = ContractManager.create();
+        contractManager.addContract("1","20211218");
+        contractManager.registerPaymentDocument(100,1010,PaymentOrder,"1","20211219");
+        contractManager.registerPaymentDocument(200,1011,BankOrder,"1","20211219");
+        contractManager.registerPaymentDocument(300,1012,PaymentOrder,"1","20211219");
+        contractManager.addContract("2d","20211219");
+        contractManager.registerPaymentDocument(111,111,PaymentOrder,"2d","20211219");
+        contractManager.registerPaymentDocument(211,122,BankOrder,"2d","20211219");
+        contractManager.registerPaymentDocument(311,133,PaymentOrder,"2d","20211219");
+
+        List<Integer> payments = new ArrayList();
+        payments.add(100);
+        payments.add(200);
+        payments.add(300);
+
+        assertArrayEquals(payments.toArray(),contractManager.getContracts().get("1").getListOfPayments());
     }
 
     /*@Test
