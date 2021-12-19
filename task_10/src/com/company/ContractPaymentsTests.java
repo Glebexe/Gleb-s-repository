@@ -65,7 +65,7 @@ public class ContractPaymentsTests extends Assert {
         contractManager.registerPaymentDocument(100,1010,PaymentOrder,"1","20211219");
         contractManager.registerPaymentDocument(200,1011,BankOrder,"1","20211219");
         contractManager.registerPaymentDocument(300,1012,PaymentOrder,"1","20211219");
-        assertEquals(600, contractManager.getContracts().get("1").getAmountOfPayments());
+        assertEquals(600, contractManager.getContracts().get("1").getSumOfPayments());
     }
 
     @Test
@@ -151,7 +151,7 @@ public class ContractPaymentsTests extends Assert {
         List<Integer> paymentsTest = new ArrayList();
         contractsTest.add("1");
         paymentsTest.add(600);
-        contractsTest.add("2");
+        contractsTest.add("2d");
         paymentsTest.add(633);
 
         HashMap<String,Integer> contractsWithPayments = contractManager.getAllContractsWithPayments();

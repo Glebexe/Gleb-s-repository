@@ -25,7 +25,7 @@ public class Contract {
         return paymentDocuments;
     }
 
-    public int getAmountOfPayments() {
+    public int getSumOfPayments() {
         int sum = 0;
         for(PaymentDocument doc : paymentDocuments.values()){
             sum += doc.getSum();
