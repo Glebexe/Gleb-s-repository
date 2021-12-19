@@ -6,39 +6,38 @@ public class ContractPaymentsTests extends Assert {
 
     @Test
     public void create_CreateListOfContracts_ContractsCountEqualsZero(){
-        ContractManager contractPayment = ContractManager.create();
-        assertEquals(0, contractPayment.getContractsCount());
+        ContractManager contractManager = ContractManager.create();
+        assertEquals(0, contractManager.getContractsCount());
     }
 
     @Test
     public void addContract_AddContractWithNumberAndDate_ContractsCountEqualsOne(){
-        ContractManager contractPayment = ContractManager.create();
-        contractPayment.addContract("1","20211218");
-        assertEquals(1, contractPayment.getContractsCount());
+        ContractManager contractManager = ContractManager.create();
+        contractManager.addContract("1","20211218");
+        assertEquals(1, contractManager.getContractsCount());
     }
 
     @Test
     public void addContract_AddContractsWithNumberAndDate_ContractsCountEqualsThree(){
-        ContractManager contractPayment = ContractManager.create();
-        contractPayment.addContract("1","20211218");
-        contractPayment.addContract("101","20211218");
-        contractPayment.addContract("111","20211218");
-        assertEquals(3, contractPayment.getContractsCount());
+        ContractManager contractManager = ContractManager.create();
+        contractManager.addContract("1","20211218");
+        contractManager.addContract("101","20211218");
+        contractManager.addContract("111","20211218");
+        assertEquals(3, contractManager.getContractsCount());
     }
 
     @Test
     public void addContract_AddContractsWithNumberAndDate_PaymentDocumentCountEqualsZero(){
-        ContractManager contractPayment = ContractManager.create();
-        contractPayment.addContract("1","20211218");
-        assertEquals(0, contractPayment.getContracts().get(1).getPaymentDocumentsCount());
+        ContractManager contractManager = ContractManager.create();
+        contractManager.addContract("1","20211218");
+        assertEquals(0, contractManager.getContracts().get("1").getPaymentDocumentsCount());
     }
 
-    /*@Test
-    public void registerPaymentDocument_RegisterPaymentDocument_DocumentsCountEqualsOne(){
-        ContractManager contractPayment = ContractManager.create();
-        contractPayment.addContract("1","20211218");
-        contractPayment.addContract("101","20211218");
-        contractPayment.addContract("111","20211218");
-        assertEquals(3, contractPayment.getContractsCount());
-    }*/
+    @Test
+    public void registerPaymentDocument_RegisterPaymentDocumentWithData_DocumentsCountEqualsOne(){
+        ContractManager contractManager = ContractManager.create();
+        contractManager.addContract("1","20211218");
+        contractManager.registerPaymentDocument(100,1010,PaymentOrder,"1","20211219");
+        assertEquals(1, contractManager.getContracts().get("1").getPaymentDocumentsCount());
+    }
 }
