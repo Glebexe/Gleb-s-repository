@@ -80,6 +80,19 @@ public class ContractPaymentsTests extends Assert {
     }
 
     @Test
+    public void deletePayment_DeletePaymentWithContractNumberNumberAndDate_PaymentsCountEqualsZero(){
+        ContractManager contractManager = ContractManager.create();
+        contractManager.addContract("1","20211218");
+        contractManager.registerPaymentDocument(100,1010,PaymentOrder,"1","20211219");
+        contractManager.registerPaymentDocument(200,1011,BankOrder,"1","20211219");
+        contractManager.registerPaymentDocument(300,1012,PaymentOrder,"1","20211219");
+        contractManager.deletePayment(1012,"1","20211219");
+        contractManager.deletePayment(1011,"1","20211219");
+        contractManager.deletePayment(1010,"1","20211219");
+        assertEquals(0, contractManager.getContracts().get("1").getPaymentDocumentsCount());
+    }
+
+    @Test
     public void getList_GetListOfAllPayments_ListEqualsTestList(){
         ContractManager contractManager = ContractManager.create();
         contractManager.addContract("1","20211218");
