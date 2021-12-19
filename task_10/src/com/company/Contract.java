@@ -5,17 +5,14 @@ import java.util.HashMap;
 public class Contract {
     private String date;
     private HashMap<Integer, PaymentDocument> paymentDocuments;
-    private int sumOfAllPayments;
 
     public Contract(String date){
         this.date = date;
         paymentDocuments = new HashMap<>();
-        sumOfAllPayments = 0;
     }
 
     public void registerPaymentDocument(int sum, int number, PaymentDocumentType paymentType, String date){
         paymentDocuments.put(number,new PaymentDocument(sum,paymentType,date));
-        sumOfAllPayments += sum;
     }
 
     public int getPaymentDocumentsCount() {
@@ -27,6 +24,10 @@ public class Contract {
     }
 
     public int getAmountOfPayments() {
-        return sumOfAllPayments;
+        int sum = 0;
+        for(PaymentDocument doc : paymentDocuments.values()){
+            sum += doc.getSum();
+        }
+        return sum;
     }
 }
