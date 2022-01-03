@@ -14,6 +14,9 @@ public abstract class Equipment {
         this.equipmentType = equipmentType;
     }
 
+    public abstract void attach(Unit unit);
+    public abstract void attach(Unit unit, Team team);
+
     public String getName() {
         return name;
     }

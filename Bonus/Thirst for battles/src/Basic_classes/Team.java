@@ -28,7 +28,7 @@ public abstract class Team {
     public boolean isTeamAlive(){
         boolean check = false;
         for(Unit i: units){
-            if (i.isAlive){
+            if (i.getIsAlive()){
                 check = true;
                 break;
             }

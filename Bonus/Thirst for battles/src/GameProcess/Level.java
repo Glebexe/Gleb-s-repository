@@ -6,9 +6,11 @@ import Teams.HumanTeam;
 public class Level {
 
     private boolean isCompleted;
+    private boolean isAwardReceived;
 
     public Level(){
         isCompleted = false;
+        isAwardReceived = false;
     }
 
     public void start(HumanTeam humanTeam, AITeam aiTeam){
@@ -18,4 +20,8 @@ public class Level {
     }
 
     public boolean isCompleted(){return isCompleted;}
+    public boolean isAwardReceived(){return isAwardReceived;}
+    public void setAwardIsReceived(){
+        isAwardReceived = true;
+    }
 }

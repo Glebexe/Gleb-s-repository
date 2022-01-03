@@ -42,9 +42,9 @@ public class Battle {
 
         int attackingUnit,defendingUnit,dealtDamage;
 
-        System.out.println("Выберете кем будете атакавать: ");
+        System.out.println("Выберите кем будете атаковать: ");
         attackingUnit = BattleInterface.checkUnitInput(humanTeam);
-        System.out.println("Выберете кого будете атакавать: ");
+        System.out.println("Выберите кого будете атаковать: ");
         defendingUnit = BattleInterface.checkUnitInput(aiTeam);
 
         dealtDamage = getUnit(aiTeam,

@@ -1,11 +1,16 @@
 package GameProcess;
 
+import Basic_classes.Team;
 import Basic_classes.Unit;
 import Factories.UnitFactory;
 import Enums.UnitType;
+import StaticClasses.BattleInterface;
+import StaticClasses.HubInterface;
 import Teams.HumanTeam;
 
 import java.util.*;
+
+import static Enums.UnitType.*;
 
 public class CreateTeams {
 
@@ -25,7 +30,7 @@ public class CreateTeams {
 
         String name;
         while (true) {
-            name = sc.next();
+            name = sc.nextLine();
             if (name.length() >= 3 && name.length() < 16) {
                 return name;
             } else {
@@ -43,10 +48,22 @@ public class CreateTeams {
 
         List<Unit> teamUnits = new ArrayList<>();
         int[] unitsNum = new int[3];
-
+        StringBuilder output = new StringBuilder();
+        List<Unit> exampleUnits = new ArrayList();
+        exampleUnits.add(unitFactory.createUnit(Warrior,0,0,0));
+        exampleUnits.add(unitFactory.createUnit(Archer,0,0,0));
+        exampleUnits.add(unitFactory.createUnit(Wizard,0,0,0));
         String teamName = createTeamName();
-
-        System.out.println("1. Воин \n2. Лучник \n3. Волшебник");
+        for(int i = 0; i < 3; i++){
+            output.append(String.format("%-14s", i +1 + ". " + exampleUnits.get(i).getName()));
+            output.append(String.format("%-4s", exampleUnits.get(i).getHp()));
+            output.append(String.format("%-4s","hp"));
+            output.append(String.format("%-3s", exampleUnits.get(i).getFullArmor()));
+            output.append(String.format("%-7s", "Броня"));
+            output.append(String.format("%-3s", exampleUnits.get(i).getFullDamage()));
+            output.append(String.format("%-7s", "Атака       \n"));
+        }
+        System.out.println(output);
 
         System.out.println("Введите номер первого юнита, которого вы бы хотели добавить себе в команду:");
         unitsNum[0] = checkInput();
@@ -68,13 +85,13 @@ public class CreateTeams {
         for(int i = 0; i < 3; i++){
             switch(unitsNum[i]){
                 case 1:
-                    team.add(unitFactory.createUnit(UnitType.Warrior,0,0,0));
+                    team.add(unitFactory.createUnit(Warrior,0,0,0));
                     break;
                 case 2:
-                    team.add(unitFactory.createUnit(UnitType.Archer,0,0,0));
+                    team.add(unitFactory.createUnit(Archer,0,0,0));
                     break;
                 case 3:
-                    team.add(unitFactory.createUnit(UnitType.Wizard,0,0,0));
+                    team.add(unitFactory.createUnit(Wizard,0,0,0));
             }
         }
     }

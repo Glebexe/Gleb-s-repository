@@ -1,25 +1,26 @@
 package Basic_classes;
-import Equipment.*;
+import Enums.UnitType;
 
-public abstract class Unit {
-    protected int hp;
-    protected int initialHp;
-    protected int armor;
-    protected int initialArmor;
-    protected int damage;
-    protected boolean isAlive;
-    protected String name;
-    protected Sword sword;
-    protected Shield shield;
-    protected Spell spell;
+public class Unit {
+    private int hp;
+    private int initialHp;
+    private int armor;
+    private int initialArmor;
+    private int damage;
+    private boolean isAlive;
+    private String name;
+    private Equipment sword;
+    private Equipment shield;
+    private UnitType unitType;
 
-    public Unit(int hp, int armor, int damage, String name){
+    public Unit(int hp, int armor, int damage, String name, UnitType unitType){
         this.hp = hp;
         initialHp = hp;
         this.armor = armor;
         initialArmor = armor;
         this.damage = damage;
         this.name = name;
+        this.unitType = unitType;
         isAlive = true;
     }
 
@@ -48,30 +49,27 @@ public abstract class Unit {
     public int getBasicDamage() {
         return damage;
     }
-    public Shield getShield() {
+    public Equipment getShield() {
         return shield;
     }
-    public Sword getSword() {
+    public Equipment getSword() {
         return sword;
-    }
-    public Spell getSpell() {
-        return spell;
     }
 
     public int receiveDamage(int damage) {
         int dealtDamage = 0;
-        int additionalArmor;
-        if(shield != null)
-            additionalArmor = shield.getBonus();
-        else
-            additionalArmor = 0;
         if (hp > 0) {
-            if (hp - (damage - additionalArmor) < 0) {
+            if (hp - (damage - getFullArmor()) < 0) {
                 dealtDamage = hp;
                 hp = 0;
             } else {
-                hp -= (damage - additionalArmor);
-                dealtDamage = (damage - additionalArmor);
+                if(damage - getFullArmor() > 0) {
+                    hp -= (damage - getFullArmor());
+                    dealtDamage = (damage - getFullArmor());
+                }
+                else{
+                    dealtDamage = 0;
+                }
             }
             if (hp == 0)
                 isAlive = false;
@@ -79,28 +77,14 @@ public abstract class Unit {
 
         return dealtDamage;
     }
-    public void setEquipment(Equipment equipment){
-        switch (equipment.getEquipmentType()){
-            case Sword -> this.sword = (Sword) equipment;
-            case Shield -> this.shield = (Shield) equipment;
-        }
+    public void setShield(Equipment equipment){
+        shield = equipment;
     }
-    public void setEquipment(Equipment equipment, Team team) {
-        switch (equipment.getEquipmentType()){
-            case Sword:
-                if(this.sword != null)
-                    team.getEquipment().add(this.sword);
-                this.sword = (Sword)equipment;
-                break;
-            case Shield:
-                if(this.shield != null)
-                    team.getEquipment().add(this.shield);
-                this.shield = (Shield) equipment;
-                break;
-        }
+    public void setSword(Equipment equipment){
+        sword = equipment;
     }
+
     public void increaseArmor(int value) {
-        System.out.println(this.armor + " " + armor);
         armor += value;
         initialArmor = armor;
     }

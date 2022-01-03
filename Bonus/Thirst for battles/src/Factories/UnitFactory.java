@@ -2,27 +2,33 @@ package Factories;
 
 import Basic_classes.Unit;
 import Enums.UnitType;
-import Units.Archer;
-import Units.Warrior;
-import Units.Wizard;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+import static Enums.UnitType.*;
 
 public class UnitFactory {
 
+    private static final String unitsConfig = "data/units_Config.txt";
+    private Scanner sc;
+
     public Unit createUnit(UnitType type, int hpBonus, int armorBonus, int damageBonus) {
-        Unit unit = null;
-
-        switch (type) {
-            case Warrior:
-                unit = new Warrior(250+hpBonus,20+armorBonus,20+damageBonus,"Воин");
-                break;
-            case Archer:
-                unit = new Archer(150+hpBonus,10+armorBonus,40+damageBonus,"Лучник");
-                break;
-            case Wizard:
-                unit = new Wizard(100+hpBonus,0+armorBonus,70+damageBonus,"Волшебник");
-                break;
+        try {
+            sc = new Scanner(new InputStreamReader(new FileInputStream(unitsConfig)));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-
-        return unit;
+        String line = sc.nextLine();
+        while (!line.split(":")[0].equals(type.toString())){
+            line = sc.nextLine();
+        }
+        String[] unitInfo = line.split(":")[1].split(",");
+        return new Unit(Integer.parseInt(unitInfo[1].split(" ")[1]) + hpBonus,
+                Integer.parseInt(unitInfo[2].split(" ")[1]) + armorBonus,
+                Integer.parseInt(unitInfo[3].split(" ")[1]) + damageBonus,
+                unitInfo[0].split(" ")[1], type);
     }
 }
