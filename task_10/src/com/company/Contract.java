@@ -14,11 +14,21 @@ public class Contract {
     }
 
     public void registerPaymentDocument(int sum, int number, PaymentDocumentType paymentType, String date){
-        paymentDocuments.put(number,new PaymentDocument(sum,paymentType,date));
+        if(paymentDocuments.containsKey(number))
+            paymentDocuments.get(number).addPaymentDocument(sum,paymentType,date);
+        else
+            paymentDocuments.put(number, new PaymentDocument().addPaymentDocument(sum,paymentType,date));
     }
 
-    public int getPaymentDocumentsCount() {
-        return paymentDocuments.size();
+    public int getPaymentsCount() {
+        int size = 0;
+        for(PaymentDocument paymentDocument : paymentDocuments.values()){
+            for(HashMap<String,Integer> typedPayments : paymentDocument.getTypedPaymentDocuments().values()){
+                for(Integer datedPayments : typedPayments.values())
+                    size++;
+            }
+        }
+        return size;
     }
 
     public HashMap<Integer, PaymentDocument> getPaymentDocuments(){

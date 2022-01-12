@@ -31,21 +31,24 @@ public class ContractManager {
 
     public void registerPaymentDocument(int sum, int paymentDocumentNumber, PaymentDocumentType paymentType,
                                         String contractNumber, String date) {
-        contracts.get(contractNumber).registerPaymentDocument(sum,paymentDocumentNumber,paymentType,date);
+        if(!contracts.containsKey(contractNumber))
+            addContract(contractNumber, date);
+        contracts.get(contractNumber).registerPaymentDocument(sum, paymentDocumentNumber, paymentType, date);
     }
 
     public List<Integer> getAllPayments() {
         List<Integer> payments = new ArrayList();
         for(Contract contract : contracts.values()){
             for(PaymentDocument paymentDoc : contract.getPaymentDocuments().values())
-            payments.add(paymentDoc.getSum());
+                for(HashMap<String,Integer> typedDoc : paymentDoc.getTypedPaymentDocuments().values())
+                    payments.addAll(typedDoc.values());
         }
 
         return payments;
     }
 
-    public void deletePayment(int paymentDocumentNum, String contractNum, String paymentDate) {
-        contracts.get(contractNum).getPaymentDocuments().remove(paymentDocumentNum);
+    public void deletePayment(int paymentDocumentNum, PaymentDocumentType paymentType, String contractNum, String paymentDate) {
+        contracts.get(contractNum).getPaymentDocuments().get(paymentDocumentNum).getTypedPaymentDocuments().get(paymentType).remove(paymentDate);
     }
 
     public HashMap<String, Integer> getAllContractsWithPayments() {
