@@ -1,0 +1,33 @@
+DoubleLinkedList | 11 | return dummy == dummy;                  -> return size == 0;                       | pushFront_PushFrontToEmptyList_EmptyIsFalse
+DoubleLinkedList | 17 | return dummy.getPrev();                 -> return dummy.getNext();                 | pushItems_PushFrontThreeItems_SecondItemIsCorrect
+DoubleLinkedList | 20 | return dummy.getNext();                 -> return dummy.getPrev();                 | pushItems_PushFrontThreeItems_SecondItemIsCorrect
+DoubleLinkedList | 24 | if(index < 0 || index > size)           -> if(index < 0 || index >= size)          | public void pushFront_PushFrontToEmptyList_GettingErrorWhenTryingToGetItemNumberOne
+DoubleLinkedList | 28 | cur = cur.getPrev();                    -> cur = cur.getNext();                    | pushItems_PushFrontThreeItems_SecondItemIsCorrect
+DoubleLinkedList | 33 | --size;                                 -> ++size;                                 | pushItems_PushFrontThreeItems_SecondItemIsCorrect
+DoubleLinkedList | 41 | return insertBefore(getTail(), data); 	-> return insertAfter(getTail(), data);    | pushItems_PushFrontThreeItems_SecondItemIsCorrect
+DoubleLinkedList | 44 | return insertBefore(getTail(), data); 	-> return insertBefore(getHead(), data);   | public void pushItems_PushBackThreeItems_SecondItemIsCorrect
+DoubleLinkedList | 47 | node.getPrev().setPrev(node.getNext()); -> node.getPrev().setNext(node.getNext()); | removeItem_RemoveFirstItem_FirstItemIsCorrect
+DoubleLinkedList | 48 | node.getNext().setNext(node.getPrev()); -> node.getNext().setPrev(node.getPrev()); | removeItem_RemoveFirstItem_FirstItemIsCorrect
+DoubleLinkedList | 55 | list.getHead().setNext(node);           -> list.getHead().setPrev(node);           | insertList_insertListAfterFirstItem_AllElementsAreCorrect
+DoubleLinkedList | 56 | list.getTail().setPrev(node.getNext()); -> list.getTail().setNext(node.getNext()); | insertList_insertListAfterFirstItem_AllElementsAreCorrect
+DoubleLinkedList | 63 |                                         -> size += list.getSize();                 | insertList_insertListAfterFirstItem_SizeIsCorrect # Я вставил новую строчку, поэтому изначальная сторчка, как бы пустая.
+DoubleLinkedList | 68 | list.getHead().setNext(node.getPrev()); -> list.getHead().setPrev(node.getPrev()); | insertList_insertListBeforeFirstItem_AllElementsAreCorrect
+DoubleLinkedList | 69 | list.getTail().setPrev(node);           -> list.getTail().setNext(node);           | insertList_insertListBeforeFirstItem_AllElementsAreCorrect
+DoubleLinkedList | 76 |                                         -> size += list.getSize();                 | insertList_insertListBeforeFirstItem_SizeIsCorrect
+
+DynamicArray 	 | 11 | size = 1;                               -> size = DefaultSize;                     | createArray_CreateArrayWithoutSize_SizeEqualsDefaultSize
+DynamicArray 	 | 15 | data = new Object[capacity];            -> data = new Object[size];                | setValues_SetThreeValues_ValuesAreCorrect
+DynamicArray     | 21 | if(newSize > 0)                         -> if(newSize < 0)                         | resize_ResizeArray_NewSizeIsCorrect
+DynamicArray     | 27 | newSize = size;                         -> size = newSize;                         | resize_ResizeArray_NewSizeIsCorrect
+DynamicArray 	 | 30 | if(index < 0 || index > size)           -> if(index < 0 || index >= size)          | createArray_TryToGetValueOutOfRange_GettingIndexOutOfBoundsException # Так как IndexOutOfBoundsException вылетает даже тогда, когда она не бросается програмно из функции, а просто самим компилятором, мне пришлось в тесте проверять message ошибки, чтобы отличать ошибку компилятора, и ту которая выбрасывается специально.
+DynamicArray     | 35 | if(index < 0 || index > size)           -> if(index < 0 || index >= size)          | createArray_TryToSetValueOutOfRange_GettingIndexOutOfBoundsException
+DynamicArray     | 40 | if(index < 0 || index > size)           -> if(index < 0 || index >= size)          | insert_TryToInsertValueOutOfRange_GettingIndexOutOfBoundsException
+DynamicArray     | 42 | (capacity < size) {                     -> if(capacity <= size) {                  | insert_InsertValue_ValuesAreCorrect
+DynamicArray     | 49 | data[size] = value;                     -> data[index] = value;                    | insert_InsertValue_ValuesAreCorrect
+DynamicArray     | 52 | if(capacity < size) {                   -> if(capacity <= size) {                  | pushBack_pushBackValue_ValuesAreCorrect
+DynamicArray     | 56 | data[capacity] = value;                 -> data[size] = value;                     | pushBack_pushBackValue_ValuesAreCorrect
+DynamicArray     | 60 | if(size < 0)                            -> if(size <= 0)                           | popBack_popBackFromEmptyArray_GettingUnsupportedOperationException
+DynamicArray     | 66 | if(index < 0 || index > size)           -> if(index < 0 || index >= size)          | remove_TryRemovingIndexOutOfBounds_GettingIndexOutOfBoundsException
+
+Node 	         | 13 | this.next = prev;                       -> this.next = next;                       | pushItems_PushFrontThreeItems_SecondItemIsCorrect
+Node             | 14 | this.prev = next;                       -> this.prev = prev;                       | pushItems_PushFrontThreeItems_SecondItemIsCorrect
