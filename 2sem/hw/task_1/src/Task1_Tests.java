@@ -476,9 +476,12 @@ public class Task1_Tests extends Assert {
     public void resize_ResizeArray_NewSizeIsCorrect() {
         try {
             DynamicArray<Integer> array = new DynamicArray<>(10);
-            array.resize(20);
 
+            array.resize(20);
             assertEquals(20, array.getSize());
+
+            array.resize(10);
+            assertEquals(10, array.getSize());
         } catch (Exception e) {
             fail();
         }

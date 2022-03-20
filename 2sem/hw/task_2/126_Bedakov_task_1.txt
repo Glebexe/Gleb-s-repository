@@ -1,0 +1,14 @@
+BubbleSort | 5 | for(int i = 0; i < data.length - sps; ++i) {       -> for(int i = 1; i < data.length - sps; ++i) {       | bubbleSort_ArrayContainsOnlyNumbersOne_ArrayHasNotChanged
+BubbleSort | 6 | if(comparator.compare(data[i - 1], data[i]) < 0) { -> if(comparator.compare(data[i - 1], data[i]) > 0) { | bubbleSort_InvertedArrayWithTheSameLastTheBiggestElement_GetSortedArray
+BubbleSort | 4 | for(int sps = 1; sps < data.length - 1; ++sps) {   -> for(int sps = 0; sps < data.length - 1; ++sps) {   | bubbleSort_InvertedArray_GetSortedArray
+
+SelectionSort | 4 |  for(int sortedSize = 1; sortedSize < data.length - 1; ++sortedSize) { -> for(int sortedSize = 0; sortedSize < data.length - 1; ++sortedSize) { | selectionSort_InvertedArrayLengthTwo_GetSortedArray
+SelectionSort | 5 |  int maxInd = 1;                                -> int maxInd = 0;                                    | selectionSort_InvertedArrayLengthTwo_GetSortedArray
+SelectionSort | 10 | T tmp = data[data.length - sortedSize];        -> T tmp = data[data.length - 1 - sortedSize];        | selectionSort_InvertedArrayLengthTwo_GetSortedArray
+SelectionSort | 11 | data[data.length - sortedSize] = data[maxInd]; -> data[data.length - 1 - sortedSize] = data[maxInd]; | selectionSort_InvertedArrayLengthTwo_GetSortedArray
+SelectionSort | 8 |  maxInd = sortedSize;                           -> maxInd = i;                                        | selectionSort_UnsortedArray_GetSortedArray
+
+InsertionSort | 8 | ++cur; -> --cur; | insertionSort_ArrayContainsOnlyNumbersOne_ArrayHasNotChanged
+InsertionSort | 6 | while (cur > 0 && comparator.compare(data[cur - 1], data[cur]) <= 0){ -> while (cur > 0 && comparator.compare(data[cur - 1], data[cur]) > 0){ | insertionSort_SortedArray_ArrayHasNotChanged
+InsertionSort | 4 | for (int sortedSize = 0; sortedSize < data.length; ++sortedSize) { -> for (int sortedSize = 1; sortedSize < data.length; ++sortedSize) { | # эту ошибку выявить невозможно, она не вызывает никаких ошибок, только увеличивает работу программы на одну проверку и всё.
+
