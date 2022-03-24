@@ -1,30 +1,31 @@
+# Так как я всё делал, до того как узнал, что нужно соблюдать последовательность истории исправления, исправленные ошибки не идут в порядке, в которм я их исправлял. Если бы я мог восстановить последовательность, я бы это сделал, но сейчас я уже не помню, что я когда исправлял.
 DoubleLinkedList | 11 | return dummy == dummy;                  -> return size == 0;                       | pushFront_PushFrontToEmptyList_EmptyIsFalse
-DoubleLinkedList | 17 | return dummy.getPrev();                 -> return dummy.getNext();                 | pushItems_PushFrontThreeItems_SecondItemIsCorrect
-DoubleLinkedList | 20 | return dummy.getNext();                 -> return dummy.getPrev();                 | pushItems_PushFrontThreeItems_SecondItemIsCorrect
+DoubleLinkedList | 17 | return dummy.getPrev();                 -> return dummy.getNext();                 | pushItems_PushFrontThreeItems_HeadIsCorrect
+DoubleLinkedList | 20 | return dummy.getNext();                 -> return dummy.getPrev();                 | pushItems_PushFrontThreeItems_TailIsCorrect
 DoubleLinkedList | 24 | if(index < 0 || index > size)           -> if(index < 0 || index >= size)          | public void pushFront_PushFrontToEmptyList_GettingErrorWhenTryingToGetItemNumberOne
-DoubleLinkedList | 28 | cur = cur.getPrev();                    -> cur = cur.getNext();                    | pushItems_PushFrontThreeItems_SecondItemIsCorrect
+DoubleLinkedList | 28 | cur = cur.getPrev();                    -> cur = cur.getNext();                    | pushItems_PushFrontThreeItems_SecondItemIsCorrect # Так как невозможно добавить элемент в пустой массив, кроме как через pushFront, который вызывает insertAfter, следовательно для того, чтобы получить элемент необходимо задействовать 3 функции, в каждой из которых есть ошибки.
 DoubleLinkedList | 33 | --size;                                 -> ++size;                                 | pushItems_PushFrontThreeItems_SecondItemIsCorrect
 DoubleLinkedList | 41 | return insertBefore(getTail(), data); 	-> return insertAfter(getTail(), data);    | pushItems_PushFrontThreeItems_SecondItemIsCorrect
 DoubleLinkedList | 44 | return insertBefore(getTail(), data); 	-> return insertBefore(getHead(), data);   | public void pushItems_PushBackThreeItems_SecondItemIsCorrect
-DoubleLinkedList | 47 | node.getPrev().setPrev(node.getNext()); -> node.getPrev().setNext(node.getNext()); | removeItem_RemoveFirstItem_FirstItemIsCorrect
+DoubleLinkedList | 47 | node.getPrev().setPrev(node.getNext()); -> node.getPrev().setNext(node.getNext()); | removeItem_RemoveFirstItem_FirstItemIsCorrect # Эти две ошибки плотно связаны
 DoubleLinkedList | 48 | node.getNext().setNext(node.getPrev()); -> node.getNext().setPrev(node.getPrev()); | removeItem_RemoveFirstItem_FirstItemIsCorrect
-DoubleLinkedList | 55 | list.getHead().setNext(node);           -> list.getHead().setPrev(node);           | insertList_insertListAfterFirstItem_AllElementsAreCorrect
+DoubleLinkedList | 55 | list.getHead().setNext(node);           -> list.getHead().setPrev(node);           | insertList_insertListAfterFirstItem_AllElementsAreCorrect # Эти две ошибки плотно связаны
 DoubleLinkedList | 56 | list.getTail().setPrev(node.getNext()); -> list.getTail().setNext(node.getNext()); | insertList_insertListAfterFirstItem_AllElementsAreCorrect
 DoubleLinkedList | 63 |                                         -> size += list.getSize();                 | insertList_insertListAfterFirstItem_SizeIsCorrect # Я вставил новую строчку, поэтому изначальная сторчка, как бы пустая.
-DoubleLinkedList | 68 | list.getHead().setNext(node.getPrev()); -> list.getHead().setPrev(node.getPrev()); | insertList_insertListBeforeFirstItem_AllElementsAreCorrect
+DoubleLinkedList | 68 | list.getHead().setNext(node.getPrev()); -> list.getHead().setPrev(node.getPrev()); | insertList_insertListBeforeFirstItem_AllElementsAreCorrect # Эти две ошибки плотно связаны
 DoubleLinkedList | 69 | list.getTail().setPrev(node);           -> list.getTail().setNext(node);           | insertList_insertListBeforeFirstItem_AllElementsAreCorrect
 DoubleLinkedList | 76 |                                         -> size += list.getSize();                 | insertList_insertListBeforeFirstItem_SizeIsCorrect
 
 DynamicArray 	 | 11 | size = 1;                               -> size = DefaultSize;                     | createArray_CreateArrayWithoutSize_SizeEqualsDefaultSize
 DynamicArray 	 | 15 | data = new Object[capacity];            -> data = new Object[size];                | setValues_SetThreeValues_ValuesAreCorrect
-DynamicArray     | 21 | if(newSize > 0)                         -> if(newSize < 0)                         | resize_ResizeArray_NewSizeIsCorrect
+DynamicArray     | 21 | if(newSize > 0)                         -> if(newSize < 0)                         | resize_ResizeArray_NewSizeIsCorrect # Невозможно пройти дальше по функции до исправления ошибки. Но с исправленной ошибкой вылезает другая, которую тоже нужно исправить.
 DynamicArray     | 27 | newSize = size;                         -> size = newSize;                         | resize_ResizeArray_NewSizeIsCorrect
 DynamicArray 	 | 30 | if(index < 0 || index > size)           -> if(index < 0 || index >= size)          | createArray_TryToGetValueOutOfRange_GettingIndexOutOfBoundsException # Так как IndexOutOfBoundsException вылетает даже тогда, когда она не бросается програмно из функции, а просто самим компилятором, мне пришлось в тесте проверять message ошибки, чтобы отличать ошибку компилятора, и ту которая выбрасывается специально.
 DynamicArray     | 35 | if(index < 0 || index > size)           -> if(index < 0 || index >= size)          | createArray_TryToSetValueOutOfRange_GettingIndexOutOfBoundsException
 DynamicArray     | 40 | if(index < 0 || index > size)           -> if(index < 0 || index >= size)          | insert_TryToInsertValueOutOfRange_GettingIndexOutOfBoundsException
-DynamicArray     | 42 | (capacity < size) {                     -> if(capacity <= size) {                  | insert_InsertValue_ValuesAreCorrect
+DynamicArray     | 42 | (capacity < size) {                     -> if(capacity <= size) {                  | insert_InsertValue_ValuesAreCorrect # Невозможно пройти дальше по функции до исправления ошибки. Но с исправленной ошибкой вылезает другая, которую тоже нужно исправить.
 DynamicArray     | 49 | data[size] = value;                     -> data[index] = value;                    | insert_InsertValue_ValuesAreCorrect
-DynamicArray     | 52 | if(capacity < size) {                   -> if(capacity <= size) {                  | pushBack_pushBackValue_ValuesAreCorrect
+DynamicArray     | 52 | if(capacity < size) {                   -> if(capacity <= size) {                  | pushBack_pushBackValue_ValuesAreCorrect # Невозможно пройти дальше по функции до исправления ошибки. Но с исправленной ошибкой вылезает другая, которую тоже нужно исправить.
 DynamicArray     | 56 | data[capacity] = value;                 -> data[size] = value;                     | pushBack_pushBackValue_ValuesAreCorrect
 DynamicArray     | 60 | if(size < 0)                            -> if(size <= 0)                           | popBack_popBackFromEmptyArray_GettingUnsupportedOperationException
 DynamicArray     | 66 | if(index < 0 || index > size)           -> if(index < 0 || index >= size)          | remove_TryRemovingIndexOutOfBounds_GettingIndexOutOfBoundsException

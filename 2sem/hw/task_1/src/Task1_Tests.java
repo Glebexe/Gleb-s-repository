@@ -500,16 +500,21 @@ public class Task1_Tests extends Assert {
 
     @Test
     public void insert_InsertValue_ValuesAreCorrect() {
-        DynamicArray<Integer> array = new DynamicArray<>(10);
-        array.set(0, 1);
-        array.set(1, 2);
-        array.set(2, 3);
-        array.insert(1, 5);
+        try {
+            DynamicArray<Integer> array = new DynamicArray<>(10);
+            array.set(0, 1);
+            array.set(1, 2);
+            array.set(2, 3);
+            array.insert(1, 5);
 
-        assertEquals(1, array.get(0).intValue());
-        assertEquals(5, array.get(1).intValue());
-        assertEquals(2, array.get(2).intValue());
-        assertEquals(3, array.get(3).intValue());
+            assertEquals(1, array.get(0).intValue());
+            assertEquals(5, array.get(1).intValue());
+            assertEquals(2, array.get(2).intValue());
+            assertEquals(3, array.get(3).intValue());
+        }
+        catch (Exception e){
+            fail();
+        }
     }
 
     @Test
