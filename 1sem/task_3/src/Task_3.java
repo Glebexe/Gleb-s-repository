@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
-public class Task_3 implements Task_3_base {
-    @Override
+public class Task_3 {
+
     public int subtask_1_for(int n1, int n2, int a, int b) {
         // подсчитать, сколько чисел, кратных a, но не кратных b,
         // находится между числами n1 и n2 включительно

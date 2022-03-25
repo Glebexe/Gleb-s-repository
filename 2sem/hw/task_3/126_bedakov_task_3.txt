@@ -1,0 +1,11 @@
+QuickSort | 12 | int base = split(data, e, b); -> int base = split(data, b, e); | quickSort_UnsortedArrayWithLengthTwo_GetSortedArray # Если не исправить эту ошибку, то большая часть кода просто не выполняется, не проходится if в qSortRec, и while не начинается в split, следовательно нет шансов выявить ошибки. Но как только мы исправляем ошибку в этой строчке, то вылезают остальные ошибки, которые тоже нужно исправить.
+QuickSort | 13 | qSortRec(data, b, base - 2); -> qSortRec(data, b, base - 1);   | quickSort_UnsortedArrayWithLengthTwo_GetSortedArray
+QuickSort | 14 | qSortRec(data, base + 2, e); -> qSortRec(data, base + 1, e);   | quickSort_UnsortedArrayWithLengthTwo_GetSortedArray
+
+
+
+
+
+
+
+

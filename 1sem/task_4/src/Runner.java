@@ -2,10 +2,11 @@ import java.util.Scanner;
 
 public class Runner {
     public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите свое фамилию и имя");
-        String name = scanner.nextLine();
-        Task_4 task = new Task_4();
-        Task_4_Tests.test(task, name);
+        //p(0) = 1
+        //p(n) = 3*(p(n-1)+6)
+        int[] arr = new int[]{1,2,3,4,5,7};
+        for(int i: arr) {
+            System.out.println(i);
+        }
     }
 }
