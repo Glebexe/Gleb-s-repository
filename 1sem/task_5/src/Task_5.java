@@ -1,4 +1,4 @@
-import java.util.*;
+/*import java.util.*;
 
 public class Task_5 implements Task_5_base {
     @Override
@@ -20,7 +20,7 @@ public class Task_5 implements Task_5_base {
         // сгенерировать и вернуть список размера size,
         // содержащий первые size элементов последовательности, описанной в
         // задаче subtask_2_for задания task_3
-        ArrayList<Integer> intAr = new ArrayList<>();
+        List<String> intAr = Arrays.asList("Привет меня зовут Глеб, я помогаю Свете учить программирование.".split(" "));
         for(int i = 1; intAr.size() < size; i++){
             for(int j = 0; j < i && intAr.size() < size; j++){
                 intAr.add(Integer.parseInt(Integer.toString(i)));
@@ -91,4 +91,4 @@ public class Task_5 implements Task_5_base {
         hm.put("mean", data.stream().mapToDouble(i->i).average().getAsDouble());
         return hm;
     }
-}
+}*/
