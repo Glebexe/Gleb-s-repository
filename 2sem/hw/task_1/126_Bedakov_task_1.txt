@@ -6,7 +6,7 @@ DoubleLinkedList | 24 | if(index < 0 || index > size)           -> if(index < 0 
 DoubleLinkedList | 28 | cur = cur.getPrev();                    -> cur = cur.getNext();                    | pushItems_PushFrontThreeItems_SecondItemIsCorrect # Так как невозможно добавить элемент в пустой массив, кроме как через pushFront, который вызывает insertAfter, следовательно для того, чтобы получить элемент необходимо задействовать 3 функции, в каждой из которых есть ошибки.
 DoubleLinkedList | 33 | --size;                                 -> ++size;                                 | pushItems_PushFrontThreeItems_SecondItemIsCorrect
 DoubleLinkedList | 41 | return insertBefore(getTail(), data); 	-> return insertAfter(getTail(), data);    | pushItems_PushFrontThreeItems_SecondItemIsCorrect
-DoubleLinkedList | 44 | return insertBefore(getTail(), data); 	-> return insertBefore(getHead(), data);   | public void pushItems_PushBackThreeItems_SecondItemIsCorrect
+DoubleLinkedList | 44 | return insertBefore(getTail(), data); 	-> return insertBefore(getHead(), data);   | pushItems_PushBackThreeItems_SecondItemIsCorrect
 DoubleLinkedList | 47 | node.getPrev().setPrev(node.getNext()); -> node.getPrev().setNext(node.getNext()); | removeItem_RemoveFirstItem_FirstItemIsCorrect # Эти две ошибки плотно связаны
 DoubleLinkedList | 48 | node.getNext().setNext(node.getPrev()); -> node.getNext().setPrev(node.getPrev()); | removeItem_RemoveFirstItem_FirstItemIsCorrect
 DoubleLinkedList | 55 | list.getHead().setNext(node);           -> list.getHead().setPrev(node);           | insertList_insertListAfterFirstItem_AllElementsAreCorrect # Эти две ошибки плотно связаны
