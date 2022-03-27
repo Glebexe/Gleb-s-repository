@@ -2,7 +2,7 @@
 DoubleLinkedList | 11 | return dummy == dummy;                  -> return size == 0;                       | pushFront_PushFrontToEmptyList_EmptyIsFalse
 DoubleLinkedList | 17 | return dummy.getPrev();                 -> return dummy.getNext();                 | pushItems_PushFrontThreeItems_HeadIsCorrect
 DoubleLinkedList | 20 | return dummy.getNext();                 -> return dummy.getPrev();                 | pushItems_PushFrontThreeItems_TailIsCorrect
-DoubleLinkedList | 24 | if(index < 0 || index > size)           -> if(index < 0 || index >= size)          | public void pushFront_PushFrontToEmptyList_GettingErrorWhenTryingToGetItemNumberOne
+DoubleLinkedList | 24 | if(index < 0 || index > size)           -> if(index < 0 || index >= size)          | pushFront_PushFrontToEmptyList_GettingErrorWhenTryingToGetItemNumberOne
 DoubleLinkedList | 28 | cur = cur.getPrev();                    -> cur = cur.getNext();                    | pushItems_PushFrontThreeItems_SecondItemIsCorrect # Так как невозможно добавить элемент в пустой массив, кроме как через pushFront, который вызывает insertAfter, следовательно для того, чтобы получить элемент необходимо задействовать 3 функции, в каждой из которых есть ошибки.
 DoubleLinkedList | 33 | --size;                                 -> ++size;                                 | pushItems_PushFrontThreeItems_SecondItemIsCorrect
 DoubleLinkedList | 41 | return insertBefore(getTail(), data); 	-> return insertAfter(getTail(), data);    | pushItems_PushFrontThreeItems_SecondItemIsCorrect
