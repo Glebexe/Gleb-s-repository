@@ -27,7 +27,7 @@ public class HeapSort<T> implements Sort<T> {
             return;
         }
         if(comparator.compare(data[parent], data[right]) >= 0 &&
-            comparator.compare(data[parent], data[left]) >= 0)
+                comparator.compare(data[parent], data[left]) >= 0)
             return;
         if(comparator.compare(data[left], data[right]) >= 0) {
             swap(left, parent);

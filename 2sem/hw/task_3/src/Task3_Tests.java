@@ -21,24 +21,24 @@ public class Task3_Tests extends Assert {
     }
 
     @Test
-    public void quickSort_UnsortedArrayWithTwoZeroAndLengthFour_GetSortedArray(){
+    public void quickSort_UnsortedArrayV1_GetSortedArray(){
         try {
-            Integer[] arr = new Integer[]{3, 0,2,0};
+            Integer[] arr = new Integer[]{1,2,3,4,5,4,3,2,1};
             QuickSort quickSort = new QuickSort();
             quickSort.sort(arr, new TestComparator());
-            assertArrayEquals(new Integer[]{0,0,2,3}, arr);
+            assertArrayEquals(new Integer[]{1,1,2,2,3,3,4,4,5}, arr);
         }catch (Exception e){
             fail();
         }
     }
 
     @Test
-    public void quickSort_UnsortedArray_GetSortedArray(){
+    public void quickSort_UnsortedArrayV2_GetSortedArray(){
         try {
-            Integer[] arr = new Integer[]{0,3,0,2,1};
+            Integer[] arr = new Integer[]{1,3,2,6,4,2,6,3,5,1,2,2,2,5,4,3,1};
             QuickSort quickSort = new QuickSort();
             quickSort.sort(arr, new TestComparator());
-            assertArrayEquals(new Integer[]{0,0,1,2,3}, arr);
+            assertArrayEquals(new Integer[]{1,1,1,2,2,2,2,2,3,3,3,4,4,5,5,6,6}, arr);
         }catch (Exception e){
             fail();
         }

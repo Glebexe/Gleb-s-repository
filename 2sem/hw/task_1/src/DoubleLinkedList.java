@@ -8,7 +8,7 @@ public class DoubleLinkedList<T> {
     }
 
     public boolean isEmpty() {
-        return dummy.getNext() == dummy;
+        return size == 0;
     }
     public int getSize() {
         return size;
@@ -21,7 +21,7 @@ public class DoubleLinkedList<T> {
     }
 
     public ListNode<T> get(int index) {
-        if(index < 0 || index > size)
+        if(index < 0 || index >= size)
             throw new IndexOutOfBoundsException("index out of bounds");
         ListNode<T> cur = getHead();
         for(int i = 0; i < index; ++i)

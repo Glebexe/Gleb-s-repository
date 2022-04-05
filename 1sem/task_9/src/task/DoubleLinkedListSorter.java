@@ -6,7 +6,7 @@ public class DoubleLinkedListSorter {
             DoubleLinkedListItem minItem =  list.getFirst();
             DoubleLinkedListItem currItem = list.getFirst();
             for(int j = 0; j < list.getSize()-i; j++) {
-                if(currItem.getData().compareTo(minItem.getData()) <0){
+                if(currItem.getData().compareTo(minItem.getData()) < 0){
                     minItem = currItem;
                 }
                 currItem = currItem.getNext();
