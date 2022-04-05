@@ -26,7 +26,7 @@ public class QuickSort<T> implements Sort<T> {
             while (right > left && comparator.compare(data[right], data[baseElem]) > 0)
                 right--;
             if(left < right)
-                swap(data, left+1, right);
+                swap(data, left, right);
         }
         return baseElem;
     }

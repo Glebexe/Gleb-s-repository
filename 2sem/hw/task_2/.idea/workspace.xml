@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09799e36-6e3d-407c-8d54-e0bdb1585eaa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../1sem/task_10/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1sem/task_10/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../1sem/task_9/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1sem/task_9/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../1sem/task_9/src/task/DoubleLinkedListSorter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1sem/task_9/src/task/DoubleLinkedListSorter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_1/126_Bedakov_task_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../task_1/126_Bedakov_task_1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_1/out/production/untitled/DoubleLinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/../task_1/out/production/untitled/DoubleLinkedList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_1/out/production/untitled/Task1_Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/../task_1/out/production/untitled/Task1_Tests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_1/src/DoubleLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../task_1/src/DoubleLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_1/src/DynamicArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/../task_1/src/DynamicArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_1/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/../task_1/src/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_1/src/Task1_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../task_1/src/Task1_Tests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/126_bedakov_task_2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/126_bedakov_task_2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_3/126_bedakov_task_3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../task_3/126_bedakov_task_3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_3/out/production/task_3/QuickSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/../task_3/out/production/task_3/QuickSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_3/out/production/task_3/Task3_Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/../task_3/out/production/task_3/Task3_Tests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_3/src/HeapSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../task_3/src/HeapSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_3/src/MergeSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../task_3/src/MergeSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_3/src/QuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../task_3/src/QuickSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../task_3/src/Task3_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../task_3/src/Task3_Tests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
