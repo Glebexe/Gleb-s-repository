@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="09799e36-6e3d-407c-8d54-e0bdb1585eaa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/126_bedakov_task_2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/126_bedakov_task_2.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,9 +34,9 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../task_3" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.Task2_Tests.bubbleSort_InvertedArray_GetSortedArray">
     <configuration name="Task2_Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="task_2" />
       <option name="PACKAGE_NAME" value="" />
@@ -45,8 +46,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Task2_Tests.bubbleSort_ArrayContainsOnlyNumbersOne_ArrayHasNotChanged" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="task_2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Task2_Tests" />
+      <option name="METHOD_NAME" value="bubbleSort_ArrayContainsOnlyNumbersOne_ArrayHasNotChanged" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Task2_Tests.bubbleSort_InvertedArrayWithTheSameLastTheBiggestElement_GetSortedArray" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="task_2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Task2_Tests" />
+      <option name="METHOD_NAME" value="bubbleSort_InvertedArrayWithTheSameLastTheBiggestElement_GetSortedArray" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Task2_Tests.bubbleSort_InvertedArray_GetSortedArray" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="task_2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Task2_Tests" />
+      <option name="METHOD_NAME" value="bubbleSort_InvertedArray_GetSortedArray" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Task2_Tests.bubbleSort_InvertedArray_GetSortedArray" />
+        <item itemvalue="JUnit.Task2_Tests.bubbleSort_InvertedArrayWithTheSameLastTheBiggestElement_GetSortedArray" />
+        <item itemvalue="JUnit.Task2_Tests.bubbleSort_ArrayContainsOnlyNumbersOne_ArrayHasNotChanged" />
         <item itemvalue="JUnit.Task2_Tests" />
       </list>
     </recent_temporary>
