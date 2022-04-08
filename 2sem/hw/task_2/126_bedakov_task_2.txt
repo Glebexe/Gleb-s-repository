@@ -10,5 +10,4 @@ SelectionSort.java | 8 |  maxInd = sortedSize;                           -> maxI
 
 InsertionSort.java | 8 | ++cur; -> --cur; | insertionSort_ArrayContainsOnlyNumbersOne_ArrayHasNotChanged
 InsertionSort.java | 6 | while (cur > 0 && comparator.compare(data[cur - 1], data[cur]) <= 0){ -> while (cur > 0 && comparator.compare(data[cur - 1], data[cur]) > 0){ | insertionSort_SortedArray_ArrayHasNotChanged
-InsertionSort.java | 4 | for (int sortedSize = 0; sortedSize < data.length; ++sortedSize) { -> for (int sortedSize = 1; sortedSize < data.length; ++sortedSize) { |
 
