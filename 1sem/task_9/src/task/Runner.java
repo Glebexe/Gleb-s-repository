@@ -13,5 +13,7 @@ public class Runner {
         String name = scanner.nextLine();
         Task_9 task = new Task_9();
         Task_9_Tests.test(task, name);
+
+        DoubleLinkedListItem<Integer> a = new DoubleLinkedListItem(1);
     }
 }

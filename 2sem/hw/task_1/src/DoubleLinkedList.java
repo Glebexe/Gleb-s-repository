@@ -26,7 +26,7 @@ public class DoubleLinkedList<T> {
         ListNode<T> cur = getHead();
         for(int i = 0; i < index; ++i)
             cur = cur.getNext();
-        return (Node<T>) cur;
+        return cur;
     }
 
     public Node<T> insertAfter(ListNode<T> node, T data) {
