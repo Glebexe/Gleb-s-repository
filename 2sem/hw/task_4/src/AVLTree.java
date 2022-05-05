@@ -80,7 +80,7 @@ public class AVLTree<T> implements BinarySearchTree<T> {
 
     private AVLTreeNode insertRec(AVLTreeNode root, T value) {
         if(comparator.compare(value, root.data) == 0) {
-            size--;
+            --size;
             return root;
         }
         else if(comparator.compare(value, root.data) < 0) {
@@ -89,6 +89,7 @@ public class AVLTree<T> implements BinarySearchTree<T> {
         else {
             return insertToRightRec(root, value);
         }
+
     }
 
     private AVLTreeNode insertToRightRec(AVLTreeNode root, T value) {
@@ -162,7 +163,7 @@ public class AVLTree<T> implements BinarySearchTree<T> {
     private AVLTreeNode removeFromLeft(AVLTreeNode node) {
         AVLTreeNode pred = maxRec(node.left);
         node.data = pred.data;
-        deleteRec(pred);
+        var nRoot = deleteRec(pred);
 
         node.restoreHeight();
         if(node.balance() == -2) {
@@ -176,15 +177,13 @@ public class AVLTree<T> implements BinarySearchTree<T> {
                 return rotateLeft(root);
             }
         }
-        if(node.parent == null)
-            return node;
-        return root;
+        return nRoot;
     }
 
     private AVLTreeNode removeFromRight(AVLTreeNode node) {
         AVLTreeNode succ = minRec(node.right);
         node.data = succ.data;
-        deleteRec(succ);
+        var nRoot = deleteRec(succ);
 
         node.restoreHeight();
         if(node.balance() == 2) {
@@ -197,9 +196,7 @@ public class AVLTree<T> implements BinarySearchTree<T> {
                 return rotateRight(root);
             }
         }
-        if(node.parent == null)
-            return node;
-        return root;
+        return nRoot;
     }
 
     private boolean isLeaf(AVLTreeNode node) {
@@ -284,16 +281,14 @@ public class AVLTree<T> implements BinarySearchTree<T> {
             return lastLeftParent;
         }
         if(comparator.compare(root.data, value) < 0)
-            return predecessorRec(root.right, lastLeftParent, value);
-        return predecessorRec(root.left, root, value);
+            return successorRec(root.right, lastLeftParent, value);
+        return successorRec(root.left, root, value);
     }
 
     @Override
     public boolean search(T value) {
         AVLTreeNode node = searchRec(root, value);
-        if(node == null)
-            return false;
-        return true;
+        return node != null;
     }
 
     @Override
