@@ -34,7 +34,7 @@ public class SimpleBinarySearchTree<T> implements BinarySearchTree<T> {
 
     @Override
     public T min() {
-        if(isEmpty())
+        if (isEmpty())
             return null;
         return minRec(root).data;
     }
@@ -77,8 +77,6 @@ public class SimpleBinarySearchTree<T> implements BinarySearchTree<T> {
                 root.right = new TreeNode(value, root);
             else
                 insertRec(root.right, value);
-        else
-            size--;
     }
 
     @Override
@@ -86,7 +84,7 @@ public class SimpleBinarySearchTree<T> implements BinarySearchTree<T> {
         TreeNode node = searchRec(root, value);
         if(node == null)
             return;
-        deleteRec(node);
+        deleteNonRec(node);
         --size;
     }
 
