@@ -43,7 +43,7 @@ public class Program {
         System.out.println("***********************");
     }
 
-    public void f2(){
+    public static void f2(){
         BTree tree = new BTree(2);
         tree.insert(100);
         tree.print();
