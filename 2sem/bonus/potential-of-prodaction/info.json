@@ -1,0 +1,8 @@
+{
+  "name": "potential-of-prodaction",
+  "version": "1.0.0",
+  "title": "Production potential statistics GUI",
+  "author": "Gleb",
+  "description": "Adds another production statistics GUI that shows how much your are producing out of your total potential if all your machines were running.",
+  "factorio_version": "1.1"
+}
