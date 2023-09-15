@@ -1,3 +1,0 @@
-Hp:20
-Armor:5
-Damage:5

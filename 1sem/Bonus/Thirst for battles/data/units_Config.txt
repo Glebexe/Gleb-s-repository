@@ -1,3 +1,0 @@
-Warrior:name Воин,hp 250,armor 15,damage 20
-Archer:name Лучник,hp 150,armor 10,damage 40
-Wizard:name Волшебник,hp 100,armor 0,damage 70
