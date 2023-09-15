@@ -1,0 +1,44 @@
+7 levels
+
+Level 1
+Компьютер новичок
+Warrior
+Warrior
+Warrior
+
+Level 2
+Компьютер профан
+Warrior
+Archer
+Wizard
+
+Level 3
+Компьютер любитель
+Warrior
+Archer(armorBonus 10)
+Warrior(damageBonus 5)
+
+Level 4
+Компьютер задрот
+Archer(equipment: Sword)
+Archer(equipment: Shield)
+Wizard(armorBonus 15, damageBonus 5)
+
+Level 5
+Компьютер киберспортсмен
+Wizard(hpBonus 30, armorBonus 10, damageBonus 5, equipment: Sword)
+Archer(armorBonus 15)
+Archer
+
+Level 6
+Компьютер про
+Warrior(hpBonus 40, armorBonus 15)
+Wizard(hpBonus 25)
+Archer(equipment: Sword(bonus 5), Shield)
+
+Level 7
+Компьютер божество
+Wizard(hpBonus 50, armorBonus 10, damageBonus 10, equipment: Sword(bonus 10))
+Wizard(hpBonus 50, armorBonus 10, damageBonus 10, equipment: Sword(bonus 10))
+Wizard(hpBonus 50, armorBonus 10, damageBonus 10, equipment: Sword(bonus 10))
+
